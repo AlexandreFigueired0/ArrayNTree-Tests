@@ -378,7 +378,10 @@ public class ArrayNTree<T extends Comparable<T>> implements NTree<T> {
 		 */
 		public PrefixIterator(ArrayNTree<T> tree) {
 			stack = new LinkedList<>();
-			stack.push(tree);
+			
+			/////////////Added by tester/////////////////////////////////////////////
+			if(!tree.isEmpty())
+				stack.push(tree);
 		}
 	
 		/**

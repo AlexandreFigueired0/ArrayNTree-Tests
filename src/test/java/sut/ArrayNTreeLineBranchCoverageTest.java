@@ -62,13 +62,9 @@ class ArrayNTreeLineBranchCoverageTest {
 	}
 	
 	@Test
-	public void testArrayNTreeEquals2EqualNTrees() {
+	public void testArrayNTreeEquals2EmptyNTrees() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
 		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(1);
-		////////////// TODO colocado so para passar
-		ant.insert(1);
-		ant2.insert(1);
-		//////////////
 		
 		assertTrue(ant.equals(ant2));
 	}

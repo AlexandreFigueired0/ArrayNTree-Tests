@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class ArrayNTreeTest {
+class ArrayNTreeLineBranchCoverageTest {
 
 	@Test
 	public void testArrayNTreeContainsEmptyTree() {
@@ -43,6 +43,19 @@ class ArrayNTreeTest {
 	}
 	
 	@Test
+	public void testArrayNTreeContainsTargetIsSecondLowestInThirdLevel() {
+		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(2,3);
+		ant.insert(10);
+		ant.insert(11);
+		ant.insert(12);
+		ant.insert(3);
+		assertTrue(ant.contains(3));
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	@Test
 	public void testArrayNTreeEqualsSameReference() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
 		assertTrue(ant.equals(ant));
@@ -67,7 +80,7 @@ class ArrayNTreeTest {
 	}
 	
 	@Test
-	public void testArrayNTree2DifferentNTrees() {
+	public void testArrayNTreeEqualsDifferentContentSameStructure() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
 		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(1);
 		ant.insert(1);
@@ -75,5 +88,29 @@ class ArrayNTreeTest {
 		
 		assertFalse(ant.equals(ant2));
 	}
+	
+	@Test
+	public void testArrayNTreeEqualsDifferentContentDifferentStructure() {
+		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
+		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(1);
+		ant.insert(1);
+		ant.insert(2);
+		ant2.insert(1);
+		
+		assertFalse(ant.equals(ant2));
+	}
+	
+	@Test
+	public void testArrayNTreeEqualsDifferentContentDifferentStructure2() {
+		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
+		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(1);
+		ant.insert(1);
+		ant2.insert(1);
+		ant2.insert(2);
+		
+		assertFalse(ant.equals(ant2));
+	}
+	
+	
 
 }

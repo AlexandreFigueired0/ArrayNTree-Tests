@@ -30,7 +30,8 @@ class ArrayNTreeLineBranchCoverageTest {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(2,1);
 		ant.insert(4);
 		ant.insert(5);
-		assertFalse(ant.contains(3));
+		// searched for 3, but after PIT, concluded 7 is better
+		assertFalse(ant.contains(7));
 	}
 	
 	@Test
@@ -44,7 +45,7 @@ class ArrayNTreeLineBranchCoverageTest {
 	
 	@Test
 	public void testArrayNTreeContainsTargetIsSecondLowestInThirdLevel() {
-		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(2,3);
+		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(2,2);
 		ant.insert(10);
 		ant.insert(11);
 		ant.insert(12);
@@ -69,6 +70,21 @@ class ArrayNTreeLineBranchCoverageTest {
 		assertTrue(ant.equals(ant2));
 	}
 	
+	// Added after mutation testing
+	@Test
+	public void testArrayNTreeEqualsThisEqualsOther() {
+		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(2,2);
+		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(2,2);
+		ant.insert(4);
+		ant.insert(5);
+		ant.insert(6);
+		ant2.insert(4);
+		ant2.insert(5);
+		ant2.insert(6);
+		
+		assertTrue(ant.equals(ant2));
+	}
+	
 	@Test
 	public void testArrayNTreeEqualsNotInstanceANTree() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
@@ -86,7 +102,7 @@ class ArrayNTreeLineBranchCoverageTest {
 	}
 	
 	@Test
-	public void testArrayNTreeEqualsDifferentContentDifferentStructure() {
+	public void testArrayNTreeEqualsThisLargerThanOther() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
 		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(1);
 		ant.insert(1);
@@ -97,7 +113,7 @@ class ArrayNTreeLineBranchCoverageTest {
 	}
 	
 	@Test
-	public void testArrayNTreeEqualsDifferentContentDifferentStructure2() {
+	public void testArrayNTreeEqualsOtherLargerThanThis() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
 		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(1);
 		ant.insert(1);

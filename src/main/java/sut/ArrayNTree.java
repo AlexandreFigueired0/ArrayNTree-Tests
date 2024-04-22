@@ -128,7 +128,7 @@ public class ArrayNTree<T extends Comparable<T>> implements NTree<T> {
 		
 		// if there are no elements left, or the smallest child is > elem,
 		// then the tree does not contain elem
-		if (isLeaf() || elem.compareTo(children[0].data)<0) 
+		if (isLeaf() || elem.compareTo(children[0].data)<0)  
 			return false;
 		
 		int position = proposePosition(elem);

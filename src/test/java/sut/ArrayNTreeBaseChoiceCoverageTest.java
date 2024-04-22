@@ -62,6 +62,7 @@ class ArrayNTreeBaseChoiceCoverageTest {
 		ant2.insert(4);
 		ant2.insert(5);
 		ant2.insert(6);
+		System.out.println(ant2);
 		
 		assertFalse(ant.equals(ant2));
 	}

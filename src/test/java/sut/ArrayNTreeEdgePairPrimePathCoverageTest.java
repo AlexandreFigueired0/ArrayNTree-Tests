@@ -60,13 +60,20 @@ class ArrayNTreeEdgePairPrimePathCoverageTest {
 	//PPC: [4,5,4] [5,4,5] [5,4,7,8]
 	@Test
 	public void testArrayNTreeEquals2EqualTreesWith2Elems() {
-		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1,1);
-		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(1,1);
-		
+		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(2);
+		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(2);
 		ant.insert(2);
+		ant.insert(1);
+		ant.insert(1);
+		
 		ant2.insert(2);
+		ant2.insert(1);
 		
 		assertTrue(ant.equals(ant2));
+		// 156 cond bound unkillable cause the equals case is
+		// previously verified
+		//Necessary to kill 156 cond negation
+		assertTrue(ant.min() == 1);
 	}
 	
 	//PPC: [4,5,4] [5,4,7,9]
@@ -82,5 +89,5 @@ class ArrayNTreeEdgePairPrimePathCoverageTest {
 
 
 
-	/////////////////////////////////////////////
+
 }

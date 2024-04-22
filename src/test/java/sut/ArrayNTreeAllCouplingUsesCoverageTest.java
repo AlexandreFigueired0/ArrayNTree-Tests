@@ -44,6 +44,8 @@ class ArrayNTreeAllCouplingUsesCoverageTest {
 		assertEquals(expected, ant);
 	}
 
+	/////////////////////////////////////////////////////////////////////////////
+	
 	// ACUC: compact a)
 	@Test
 	void testArrayNTreeDeleteRootWithChildren() {
@@ -57,5 +59,19 @@ class ArrayNTreeAllCouplingUsesCoverageTest {
 		ant.delete(1);
 		assertEquals(expected, ant);
 	}
+	
+	// ACUC: compact b)
+		@Test
+		void testArrayNTreeDeleteGreatestElement() {
+			ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1,2);
+			ant.insert(2);
+			ant.insert(3);
+
+			ArrayNTree<Integer> expected = new ArrayNTree<Integer>(1,2);
+			expected.insert(2);
+
+			ant.delete(3);
+			assertEquals(expected, ant);
+		}
 
 }

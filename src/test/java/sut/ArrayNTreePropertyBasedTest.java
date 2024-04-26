@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import org.junit.runner.RunWith;
 
@@ -78,7 +79,11 @@ public class ArrayNTreePropertyBasedTest {
 		tree.insert(1);
 		List<Integer> startTreeElems = tree.toList();
 
-		for(int i = 0; i<15; i++) {
+		Random rd = new Random();
+		
+		int nInserts = rd.nextInt(100);
+		
+		for(int i = 0; i<nInserts; i++) {
 			tree.insert(1);
 		}
 

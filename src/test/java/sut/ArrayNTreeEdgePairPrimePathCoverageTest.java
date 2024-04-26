@@ -6,6 +6,22 @@ import org.junit.jupiter.api.Test;
 
 class ArrayNTreeEdgePairPrimePathCoverageTest {
 
+	// Best effort EPC: [0,1]
+	@Test
+	public void testArrayNTreeSameRefTrees() {
+		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
+		assertTrue(ant.equals(ant));
+	}
+	
+	// Best effort EPC: [0,2,9]
+	@Test
+	public void testArrayNTreeEquals2EmptyNTrees() {
+		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
+		ArrayNTree<Integer> ant2 = null;
+
+		assertFalse(ant.equals(ant2));
+	}
+	
 	// EPC: [0,2,3] [2,3,4] [3,4,5] [4,5,4] [5,4,5] [4,5,6]
 	@Test
 	public void testArrayNTreeEqualsFirstChildDiff() {
@@ -70,9 +86,12 @@ class ArrayNTreeEdgePairPrimePathCoverageTest {
 		ant2.insert(1);
 		
 		assertTrue(ant.equals(ant2));
+		
+		
 		// 156 cond bound unkillable cause the equals case is
 		// previously verified
-		//Necessary to kill 156 cond negation
+		// ASSERT NOT RELATED TO THE OBJECTIVE OF THE TEST SET!
+		// Necessary to kill 156 cond negation
 		assertTrue(ant.min() == 1);
 	}
 	

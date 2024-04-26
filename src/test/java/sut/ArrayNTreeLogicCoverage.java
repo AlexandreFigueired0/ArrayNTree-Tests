@@ -127,7 +127,7 @@ class ArrayNTreeLogicCoverage {
 		assertFalse(ant.equals(ant2));
 	}
 	
-	// kill 139 neg conditions
+	// kill 139 neg conditions and return false sub
 	@Test
 	public void testArrayNTreeEqualsDiffTrees2() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1,3);
@@ -142,6 +142,10 @@ class ArrayNTreeLogicCoverage {
 		
 		
 		assertFalse(ant.equals(ant2));
+		
+		// NOT THE OBJECTIVE OF THE TEST
+		// Only to kill 139 replace with return false mutation
+		assertTrue(ant2.contains(5));
 	}
 	
 	

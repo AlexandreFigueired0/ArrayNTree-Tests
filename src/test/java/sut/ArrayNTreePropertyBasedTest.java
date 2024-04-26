@@ -25,11 +25,8 @@ public class ArrayNTreePropertyBasedTest {
 	public void propShuffledInsertsDontBreakInvariant(@From(ArrayNTreeGenerator.class) ArrayNTree<Integer> tree) {
 		List<Integer> toInsert = tree.toList();
 		Collections.shuffle(toInsert);
-		ArrayNTree<Integer> tree2 = new ArrayNTree<Integer>(3); 
+		ArrayNTree<Integer> tree2 = new ArrayNTree<Integer>(toInsert,3); 
 
-		for(int i : toInsert) {
-			tree2.insert(i);
-		}
 
 		assertTrue(invariant(tree2));
 	}
@@ -51,8 +48,9 @@ public class ArrayNTreePropertyBasedTest {
 	public void propInsertAndRemoveElemDoesntChangeOtherElems(@From(ArrayNTreeGenerator.class) ArrayNTree<Integer> tree) {
 		List<Integer> startTreeElems = tree.toList();
 
-		tree.insert(1);
-		tree.delete(1);
+		int element = new Random().nextInt();
+		tree.insert(element);
+		tree.delete(element);
 
 		List<Integer> afterTreeElems = tree.toList();
 
@@ -75,16 +73,18 @@ public class ArrayNTreePropertyBasedTest {
 	//5
 	@Property
 	public void propInsertElemSeveralTimesDoesNothing(@From(ArrayNTreeGenerator.class) ArrayNTree<Integer> tree) {
-		// Guarantee 1 is there
-		tree.insert(1);
+		Random rd = new Random();
+		int element = rd.nextInt();
+		// Guarantee element is there
+		tree.insert(element);
+		
 		List<Integer> startTreeElems = tree.toList();
 
-		Random rd = new Random();
 		
 		int nInserts = rd.nextInt(100);
 		
 		for(int i = 0; i<nInserts; i++) {
-			tree.insert(1);
+			tree.insert(element);
 		}
 
 		List<Integer> afterTreeElems = tree.toList();

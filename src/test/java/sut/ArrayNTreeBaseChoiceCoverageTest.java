@@ -31,7 +31,7 @@ class ArrayNTreeBaseChoiceCoverageTest {
 		
 		assertFalse(ant.equals(ant2));
 		
-		// NOT THE OBJECTIVE FOR THE TEST SET
+		// NOT THE OBJECTIVE OF THE TEST SET
 		// kill mutation 156 neg condition
 		assertTrue(ant2.min()== 1);
 	}
@@ -66,7 +66,6 @@ class ArrayNTreeBaseChoiceCoverageTest {
 		// kill -> 123 neg condition
 		ant2.insert(5);
 		
-		
 		assertTrue(ant.equals(ant2));
 	}
 	
@@ -94,7 +93,7 @@ class ArrayNTreeBaseChoiceCoverageTest {
 	/////////////////// Just tests to kill mutations ////////////////////////
 	
 	// kill 177 neg cond and 179 remove call mutation
-	// 177,185,271,276 boudnary change unkillable bcs equals case is verified earleir
+	// 156, 177, 185, 271, 276 boudnary change unkillable bcs equals case is verified earleir
 	@Test
 	public void testArrayNTreeEqualsThisEqualsOther2() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1,2);

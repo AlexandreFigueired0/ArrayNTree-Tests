@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 class ArrayNTreeEdgePairPrimePathCoverageTest {
 
 	// Best effort EPC: [0,1]
+	// Best effort PPC: [0,1]
 	@Test
 	public void testArrayNTreeSameRefTrees() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
@@ -14,6 +15,7 @@ class ArrayNTreeEdgePairPrimePathCoverageTest {
 	}
 	
 	// Best effort EPC: [0,2,9]
+	// Best effort PPC: [0,2,9]
 	@Test
 	public void testArrayNTreeEquals2EmptyNTrees() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1);
@@ -62,7 +64,6 @@ class ArrayNTreeEdgePairPrimePathCoverageTest {
 		assertFalse(ant.equals(ant2));
 	}
 	
-	////////////////////////////////////////////////////////////////
 	
 	// PPC: [0,2,3,4,5,6]
 	@Test
@@ -99,7 +100,7 @@ class ArrayNTreeEdgePairPrimePathCoverageTest {
 	@Test
 	public void testArrayNTreeEqualsEqualRootsOnlyRootTreeAndRootWithChildTree() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(1,1);
-		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(1);
+		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(1,1);
 		
 		ant.insert(2);
 		

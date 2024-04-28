@@ -74,40 +74,7 @@ class ArrayNTreeLineBranchCoverageTest {
 		assertTrue(ant.equals(ant2));
 	}
 
-	// Added after mutation testing (swap sub-tree roots)
-	// 156,177,185,271,276 
-	// boundary mutation are unkillable bcs the equals case is dealt with
-	// previously
-	@Test
-	public void testArrayNTreeEqualsThisEqualsOther() {
-		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(2,2);
-		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(2,2);
-		ant.insert(5);
-		ant.insert(6);
-		ant.insert(4);
-		ant2.insert(5);
-		ant2.insert(4);
-		ant2.insert(6);
 
-		assertTrue(ant.equals(ant2));
-	}
-
-	///////////////////////////////////////////
-	// Added for mutation testing
-	// shift children
-	@Test
-	public void testArrayNTreeEqualsThisEqualsOther2() {
-		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(2,3);
-		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(2,3);
-		ant.insert(5);
-		ant.insert(6);
-		ant.insert(4);
-		ant2.insert(4);
-		ant2.insert(5);
-		ant2.insert(6);
-
-		assertTrue(ant.equals(ant2));
-	}
 
 	@Test
 	public void testArrayNTreeEqualsNotInstanceANTree() {
@@ -145,6 +112,44 @@ class ArrayNTreeLineBranchCoverageTest {
 		ant2.insert(2);
 
 		assertFalse(ant.equals(ant2));
+	}
+	
+	///////////////////////////////////////////////////////////////////
+	/////////////// Just tests to kill mutations //////////////////////
+	
+	// Added after mutation testing (swap sub-tree roots)
+	// 156, 177, 185, 271, 276 
+	// boundary mutation are unkillable bcs the equals case is dealt with
+	// previously
+	@Test
+	public void testArrayNTreeEqualsThisEqualsOther() {
+		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(2,2);
+		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(2,2);
+		ant.insert(5);
+		ant.insert(6);
+		ant.insert(4);
+		ant2.insert(5);
+		ant2.insert(4);
+		ant2.insert(6);
+
+		assertTrue(ant.equals(ant2));
+	}
+
+	///////////////////////////////////////////
+	// Added for mutation testing
+	// shift children
+	@Test
+	public void testArrayNTreeEqualsThisEqualsOther2() {
+		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(2,3);
+		ArrayNTree<Integer> ant2 = new ArrayNTree<Integer>(2,3);
+		ant.insert(5);
+		ant.insert(6);
+		ant.insert(4);
+		ant2.insert(4);
+		ant2.insert(5);
+		ant2.insert(6);
+
+		assertTrue(ant.equals(ant2));
 	}
 
 

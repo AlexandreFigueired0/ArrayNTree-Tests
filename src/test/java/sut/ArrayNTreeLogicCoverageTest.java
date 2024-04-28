@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class ArrayNTreeLogicCoverage {
+class ArrayNTreeLogicCoverageTest {
 	
 	// CACC: 2
 	@Test
@@ -62,7 +62,7 @@ class ArrayNTreeLogicCoverage {
 	/////////////////// Just tests to kill mutations ////////////////////////
 	
 	// kill 177 neg cond and 179 remove call mutation
-	// 156,177,185,271,276 boudnary change unkillable bcs equals case is verified earleir
+	// 156, 177, 185, 271, 276 boudnary change unkillable bcs equals case is verified earleir
 	@Test
 	public void testArrayNTreeEqualsDiffRefEqualNTrees2() {
 		ArrayNTree<Integer> ant = new ArrayNTree<Integer>(3);
@@ -82,6 +82,7 @@ class ArrayNTreeLogicCoverage {
 		ant2.insert(5);
 		ant2.insert(6);
 		ant2.insert(3);
+		
 		
 		assertTrue(ant.equals(ant2));
 	}
@@ -108,6 +109,7 @@ class ArrayNTreeLogicCoverage {
 		ant2.insert(5);
 		ant2.insert(6);
 		ant2.insert(3);
+		
 		
 		assertTrue(ant.equals(ant2));
 	}
@@ -139,7 +141,6 @@ class ArrayNTreeLogicCoverage {
 		ant2.insert(4);
 		ant2.insert(5);
 		ant2.insert(2);
-		
 		
 		assertFalse(ant.equals(ant2));
 		

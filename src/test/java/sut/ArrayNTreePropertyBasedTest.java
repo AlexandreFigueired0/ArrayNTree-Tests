@@ -25,9 +25,13 @@ public class ArrayNTreePropertyBasedTest {
 	public void propShuffledInsertsDontBreakInvariant(@From(ArrayNTreeGenerator.class) ArrayNTree<Integer> tree) {
 		List<Integer> toInsert = tree.toList();
 		Collections.shuffle(toInsert);
-		ArrayNTree<Integer> tree2 = new ArrayNTree<Integer>(toInsert,3); 
+		ArrayNTree<Integer> tree2 = new ArrayNTree<Integer>(3); 
+		
+		for (int i : toInsert) {
+			tree2.insert(i);
+		}
 
-
+		
 		assertTrue(invariant(tree2));
 	}
 
